@@ -16,12 +16,13 @@ header {
   background-image: url('https://www.eurotechconseil.com/wp-content/uploads/2022/02/article-php.webp');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 60%;
+  /* max-height: 60%;
+  min-height: 100vh; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
 }
 
 header .bg {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
@@ -33,7 +34,7 @@ header .bg {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
 
   background-color: rgba(36, 36, 36, 0.358);
   backdrop-filter: blur(8px);
@@ -53,17 +54,21 @@ header hgroup {
   cursor: default;
 }
 
-header hgroup:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-}
-
 header hgroup h1 {
   font-size: 1.5em;
 }
 
 header hgroup p {
   font-size: 1em;
+}
+
+header hgroup ul {
+  display: flex;
+  gap: 1rem;
+}
+
+header hgroup ul li {
+  list-style: none;
 }
 
 header hgroup ul li a img {
@@ -79,11 +84,6 @@ header hgroup ul li a img {
   transition: transform 0.3s ease-in-out;
 }
 
-.profile-picture:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-}
-
 
 main {
   padding: 2rem;
@@ -94,13 +94,79 @@ main {
 
 main h2 {
   font-size: 2rem;
-  /* color: #0a66c2; */
 }
 
 main .container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.carrousel-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.carrousel-container .carrousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.images {
+  position: relative;
+  height: 7rem;
+}
+
+.images img {
+  height: 7rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.bg-carrousel {
+  background-color: rgba(0, 0, 0, 0.653);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 7rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.bg-carrousel h3 {
+  color: white;
+  font-size: 1em;
+}
+
+.carrousel-container .carrousel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a66c2;
+  border: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.carrousel-button img {
+  height: 2rem;
+  width: 100%;
 }
 
 section {
@@ -116,32 +182,37 @@ section article {
   background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
   /* padding: 2rem; */
   border-radius: 1rem;
+  min-height: 27rem;
   max-width: 20rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 section article header {
-  background-image: url('./assets/images/dimension\ image.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 10rem;
   width: 100%;
-  padding: 0;
   border-radius: 1rem 1rem 0 0;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
   cursor: pointer;
   overflow: hidden;
-  transition: background-size 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-section article header:hover {
-  background-size: 120%;
-  transition: background-size 0.3s ease-in-out;
+section article .article-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
+
+section article .article-image:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
 
 section article .details {
   padding: 1rem;
@@ -171,9 +242,57 @@ section article footer ul li {
 }
 
 
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 5px;
+  box-shadow: 0 0 30px #000a;
+}
+
+.modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 2px solid white;
+  border-radius: 100px;
+}
+
+button img {
+  height: 2rem;
+  width: 100%;
+}
+
+
 @media (min-width: 768px) {
     header {
-      height: 75%;;
+      height: 75%;
     }
 
     header .bg {
@@ -186,6 +305,38 @@ section article footer ul li {
       justify-content: space-between;
       gap: 2rem;
     }
+
+
+    .carrousel-container .carrousel {
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .images {
+      height: 20rem;
+    }
+
+    .images img {
+      height: 20rem;
+    }
+
+    .bg-carrousel {
+      height: 20rem;
+    }
+
+    .bg-carrousel h3 {
+      color: white;
+      font-size: 2em;
+    }
+
+    .carrousel-container .carrousel-button {
+      height: 3rem;
+      width: 3rem;
+    }
+
+    .carrousel-button img {
+      height: 2.5rem;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -196,5 +347,15 @@ section article footer ul li {
 
     main {
       padding: 4rem 10rem;
+    }
+
+    header hgroup:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .profile-picture:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out;
     }
 }
