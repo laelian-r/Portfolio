@@ -40,19 +40,19 @@ const images = [
     "name": "Garage404",
   },
   {
-    "img": "./public/assets/images/parcours/eden-school.jpg",
+    "img": "../public/assets/images/parcours/eden-school.jpg",
     "name": "EDEN School",
   }
 ];
 
-// function inner(e) {
-//   imageCarrousel.innerHTML =`
-//     <img src="${images[e].img}" alt="${images[e].name}" class="carrousel-picture"/>
-//     <div class="bg-carrousel">
-//       <h3>${images[e].name}</h3>
-//     </div>
-//   `;
-// }
+function inner(e) {
+  imageCarrousel.innerHTML =`
+    <img src="${images[e].img}" alt="${images[e].name}" class="carrousel-picture"/>
+    <div class="bg-carrousel">
+      <h3>${images[e].name}</h3>
+    </div>
+  `;
+}
 inner(counter);
 
 next.addEventListener('click', () => {
