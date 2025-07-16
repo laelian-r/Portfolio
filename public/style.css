@@ -114,6 +114,11 @@ main .container {
 
 .carrousel-container .carrousel {
   display: flex;
+
+  /* -------------------- */
+  flex-direction: column;
+  /* -------------------- */
+
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -308,6 +313,10 @@ button img {
 
 
     .carrousel-container .carrousel {
+      /* -------------------- */
+      flex-direction: row;
+      /* -------------------- */
+      
       gap: 2rem;
       margin-top: 3rem;
     }
