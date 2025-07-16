@@ -45,14 +45,14 @@ const images = [
   }
 ];
 
-function inner(e) {
-  imageCarrousel.innerHTML =`
-    <img src="./public/assets/images/parcours/${images[e].img}" alt="${images[e].name}" class="carrousel-picture"/>
-    <div class="bg-carrousel">
-      <h3>${images[e].name}</h3>
-    </div>
-  `;
-}
+// function inner(e) {
+//   imageCarrousel.innerHTML =`
+//     <img src="./public/assets/images/parcours/${images[e].img}" alt="${images[e].name}" class="carrousel-picture"/>
+//     <div class="bg-carrousel">
+//       <h3>${images[e].name}</h3>
+//     </div>
+//   `;
+// }
 inner(counter);
 
 next.addEventListener('click', () => {
