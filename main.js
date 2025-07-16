@@ -36,18 +36,18 @@ let counter = 0;
 
 const images = [
   {
-    "img": "./public/assets/images/parcours/g404.jpg",
+    "img": "g404.jpg",
     "name": "Garage404",
   },
   {
-    "img": "../public/assets/images/parcours/eden-school.jpg",
+    "img": "eden-school.jpg",
     "name": "EDEN School",
   }
 ];
 
 function inner(e) {
   imageCarrousel.innerHTML =`
-    <img src="${images[e].img}" alt="${images[e].name}" class="carrousel-picture"/>
+    <img src="./public/assets/images/parcours/${images[e].img}" alt="${images[e].name}" class="carrousel-picture"/>
     <div class="bg-carrousel">
       <h3>${images[e].name}</h3>
     </div>
